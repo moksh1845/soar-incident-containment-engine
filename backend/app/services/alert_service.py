@@ -63,3 +63,36 @@ class AlertService:
         return AlertRepository.get_all_alerts(
             db
         )
+    
+        @staticmethod
+        def get_open_alerts(
+        db
+    ):
+
+            return (
+            AlertRepository.get_open_alerts(
+                db
+            )
+        )
+
+    @staticmethod
+    def get_critical_alerts(
+        db
+    ):
+
+        return (
+            AlertRepository.get_critical_alerts(
+                db
+            )
+        )
+
+    @staticmethod
+    def get_statistics(
+        db
+    ):
+
+        return (
+            AlertRepository.get_alert_statistics(
+                db
+            )
+        )

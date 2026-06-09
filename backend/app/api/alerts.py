@@ -59,3 +59,32 @@ def get_alert(
         db,
         alert_id
     )
+
+@router.get("/open")
+def get_open_alerts(
+    db: Session = Depends(get_db)
+):
+
+    return AlertService.get_open_alerts(
+        db
+    )
+
+
+@router.get("/critical")
+def get_critical_alerts(
+    db: Session = Depends(get_db)
+):
+
+    return AlertService.get_critical_alerts(
+        db
+    )
+
+
+@router.get("/stats")
+def get_statistics(
+    db: Session = Depends(get_db)
+):
+
+    return AlertService.get_statistics(
+        db
+    )
