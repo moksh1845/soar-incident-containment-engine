@@ -1,18 +1,21 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class WazuhWebhook(BaseModel):
 
-    rule_id: int
+    rule_id: Optional[int] = None
 
-    severity: int
+    agent_id: Optional[str] = None
 
-    title: str
+    agent_name: Optional[str] = None
 
-    description: str
+    level: Optional[int] = None
 
-    src_ip: str | None = None
+    title: Optional[str] = None
 
-    agent_id: str
+    description: Optional[str] = None
 
-    agent_name: str
+    src_ip: Optional[str] = None
+
+    raw_alert: dict

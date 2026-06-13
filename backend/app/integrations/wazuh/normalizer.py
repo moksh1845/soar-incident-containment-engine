@@ -1,44 +1,46 @@
 class WazuhNormalizer:
 
     @staticmethod
-    def normalize(payload: dict):
+    def normalize(alert_data):
 
         return {
-            "wazuh_rule_id": payload.get(
+
+            "wazuh_rule_id": alert_data.get(
                 "rule_id",
                 0
             ),
 
-            "agent_id": payload.get(
+            "agent_id": alert_data.get(
                 "agent_id",
                 "unknown"
             ),
 
-            "agent_name": payload.get(
+            "agent_name": alert_data.get(
                 "agent_name",
                 "unknown"
             ),
 
-            "severity": payload.get(
-                "severity",
+            "severity": alert_data.get(
+                "level",
                 0
             ),
 
-            "title": payload.get(
+            "title": alert_data.get(
                 "title",
                 "Unknown Alert"
             ),
 
-            "description": payload.get(
+            "description": alert_data.get(
                 "description",
                 ""
             ),
 
-            "src_ip": payload.get(
-                "src_ip"
+            "src_ip": alert_data.get(
+                "src_ip",
+                ""
             ),
 
             "status": "OPEN",
 
-            "raw_alert": payload
+            "raw_alert": alert_data
         }
